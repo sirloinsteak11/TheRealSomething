@@ -1,5 +1,6 @@
 const express = require('express');
 const db_connection = require('./db_connection.js');
+const db_interactions = require('./db_interactions.js');
 app = express();
 port = 8080;
 
@@ -7,6 +8,8 @@ port = 8080;
 /* uri = db_connection.uri;
 client = db_connection.client;
 runMongoDB = db_connection.runMongoDB; */
+
+db_interactions.insertItem({ name: 'gah', age: 29 });
 
 app.use('/', express.static('static'));
 
