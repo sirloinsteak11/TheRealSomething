@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const db_connection = require('./db_connection.js');
 const db_interactions = require('./db_interactions.js');
 app = express();
