@@ -16,9 +16,8 @@ async function insertItem(item) {
     await client.connect();
     // Send a ping to confirm a successful connection
     const dbo = client.db("test");
-    const myobj = item;
-    const insertedItem = await dbo.collection("test-1").insertOne(myobj);
-    console.log(`1 doc inserted, bearing id ${insertedItem.insertedId}`);
+    const insertedItem = await dbo.collection("test-1").insertOne(item);
+    console.log(`1 doc inserted, bearing id ${insertedItem.insertedId}\n document: ${JSON.stringify(item)}`);
   } catch (e) {
     throw e;
   } finally {
