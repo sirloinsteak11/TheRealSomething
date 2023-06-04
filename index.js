@@ -13,9 +13,16 @@ runMongoDB = db_connection.runMongoDB; */
 db_interactions.insertItem({ name: "Leo the Farmer", occupation: 'farmer', personalityID: 'stingy' });
 
 app.use('/', express.static('static'));
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 
-app.get('/', () => {
+app.get('/', (req, res) => {
   res.sendFile('static/index.html');
+})
+
+app.post('/submit', (req, res) => {
+  let data = req.body;
+  console.log(`data has been recieved, ${JSON.stringify(data)}`);
 })
 
 app.listen(port, () => {
