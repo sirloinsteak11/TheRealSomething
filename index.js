@@ -24,11 +24,15 @@ app.post('/submit', (req, res) => {
   let data = req.body;
   res.send('data recieved');
   db_interactions.insertItem(data);
+});
+
+app.get('/getallemployees', (req, res) => {
+  // res.send(JSON.stringify(db_interactions.readItem({ type: "villager" })));
+  res.send({ fuck: "you" });
+  console.log('items are being read from database');
 })
 
 app.listen(port, () => {
   console.log(`server running on port ${port}, access webserver at \nhttp://127.0.0.1:${port}\nhttp://localhost:${port}`);
 });
-
-console.log('testing test');
 // runMongoDB();

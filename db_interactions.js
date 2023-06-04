@@ -26,4 +26,22 @@ async function insertItem(item) {
   }
 }
 
+async function readItem(query) {
+  try {
+    // Connect the client to the server	(optional starting in v4.7)
+    await client.connect();
+    // Send a ping to confirm a successful connection
+    const dbo = client.db("test");
+    const result = dbo.collection('test-1').find(query);
+    console.log(result);
+    return result;
+  } catch (e) {
+    throw e;
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+
 module.exports.insertItem = insertItem;
+module.exports.readItem = readItem;
