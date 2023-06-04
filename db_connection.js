@@ -23,7 +23,7 @@ async function runMongoDB() {
   }
 }
 
-runMongoDB().catch(console.dir);
+// runMongoDB().catch(console.dir);
 
 module.exports.uri = uri;
 module.exports.client = client;

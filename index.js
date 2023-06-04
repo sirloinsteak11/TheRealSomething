@@ -9,7 +9,7 @@ port = 8080;
 client = db_connection.client;
 runMongoDB = db_connection.runMongoDB; */
 
-db_interactions.insertItem({ name: 'gah', age: 29 });
+db_interactions.insertItem({ name: "Leo the Farmer", occupation: 'farmer', personalityID: 'stingy' });
 
 app.use('/', express.static('static'));
 
