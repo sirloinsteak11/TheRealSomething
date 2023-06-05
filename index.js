@@ -22,8 +22,8 @@ app.get('/', (req, res) => {
 
 app.post('/submit', (req, res) => {
   let data = req.body;
-  res.send('data recieved');
-  db_interactions.insertItem(data);
+  res.send(JSON.stringify(data));
+  // db_interactions.insertItem(data);
 });
 
 app.get('/getallemployees', (req, res) => {
