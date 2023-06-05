@@ -27,8 +27,8 @@ app.post('/submit', (req, res) => {
 });
 
 app.get('/getallemployees', (req, res) => {
-  // res.send(JSON.stringify(db_interactions.readItem({ type: "villager" })));
-  res.send({ fuck: "you" });
+  res.send(JSON.stringify(db_interactions.readItem({})));
+  // res.send({ fuck: "you" });
   console.log('items are being read from database');
 })
 

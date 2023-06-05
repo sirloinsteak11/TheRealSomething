@@ -32,7 +32,7 @@ async function readItem(query) {
     await client.connect();
     // Send a ping to confirm a successful connection
     const dbo = client.db("test");
-    const result = dbo.collection('test-1').find(query);
+    const result = dbo.collection('test-1').find(query).toArray();
     console.log(result);
     return result;
   } catch (e) {
