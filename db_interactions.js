@@ -10,6 +10,14 @@ const client = new MongoClient(uri, {
   }
 });
 
+function arrayToJson(array) {
+  let jsonObj = {};
+  for (let i=0; i<array.length;i++) {
+    jsonObj["position" + (i+1)] = array[i];
+  }
+  return jsonObj;
+}
+
 async function insertItem(item) {
   try {
     // Connect the client to the server	(optional starting in v4.7)
@@ -32,9 +40,9 @@ async function readItem(query) {
     await client.connect();
     // Send a ping to confirm a successful connection
     const dbo = client.db("test");
-    const result = dbo.collection('test-1').find(query).toArray();
-    console.log(result);
-    return result;
+    const result = await dbo.collection('test-1').find(query).toArray();
+    console.log(arrayToJson(result));
+    return arrayToJson(result);
   } catch (e) {
     throw e;
   } finally {
